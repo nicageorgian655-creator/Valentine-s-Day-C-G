@@ -1,0 +1,127 @@
+# Valentine-s-Day-C-G
+# Valentine's Day - C
+<!DOCTYPE html>
+<index.html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine’s Day 💖</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #ff5f9e, #ffc3a0);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .container {
+      margin-top: 120px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      border-radius: 25px;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 15px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background-color: #ff2e63;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #444;
+      color: white;
+      position: absolute;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: pink;
+      font-size: 20px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    audio {https://youtu.be/ji4TFhAPSGo?si=qLLCAz2dzzmhm_jo
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>💌 Hei bunaaa, vrei să fii Valentine-ul meu?🥰💌</h1>
+    <p>promit ca iti voi ramane alaturi mereu si o sa te iubesc mereu ca în prima clipa ! Si pe zi ce trece tot mai muuult🤞🏼♾️</p>
+    <button id="yesBtn">DA ❤️</button>
+    <button id="noBtn">NU 🤗</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1 style="margin-top: 200px;">💖 YEEEEEYYY🥰</h1>
+        <p style="font-size: 28px;">
+        Te iubesc mult, Crinuța mea🥹<br>
+        Ești Valentine-ul meu pentru totdeauna!💍<br><br>
+        al tau, Georgian 🤞🏼
+        </p>
+      `;
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
